@@ -1,0 +1,53 @@
+[DESIGN]
+# Maximum number of arguments for function / method. (defaults to 5)
+max-args=16
+
+# Maximum number of attributes for a class (see R0902). (defaults to 7)
+max-attributes=16
+
+# Maximum number of locals for function / method body. (defaults to 15)
+max-locals=32
+
+[FORMAT]
+# Make pylint compatible with black.
+# Reference: https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html#pylint
+max-line-length=88
+# Good names, `i,j,k,ex,Run,_,` are default. Explain new added name below:
+# `gt` for ground truth.
+# `f` for files
+good-names=i,j,k,ex,Run,_,gt,f
+
+[MASTER]
+# A comma-separated list of package or module names from where C extensions may
+# be loaded. Extensions are loading into the active Python interpreter and may
+# run arbitrary code.
+extension-pkg-allow-list=cv2,numpy
+
+# Add files or directories matching the regex patterns to the ignore-list. The
+# regex matches against paths and can be in Posix or Windows format.
+ignore-paths=experiments
+
+# List of plugins (as comma separated values of python modules names) to load,
+# usually to register additional checkers.
+load-plugins=pylint_pytest
+
+[MESSAGES CONTROL]
+# Make pylint compatible with black.
+# Reference: https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html#pylint
+# Disable c-extension-no-member and not-callable for numpy, torch and cv2.
+disable=C0111,
+        C0326,
+        C0330,
+        R0801,
+        c-extension-no-member,
+        not-callable
+
+[SIMILARITIES]
+# Ignore imports when computing similarities.
+ignore-imports=yes
+# Enlarge the lines number of a similarity. Default value is 4.
+min-similarity-lines=20
+
+[TYPECHECK]
+# Generated member for pylint compatibility
+generated-members=torch.*

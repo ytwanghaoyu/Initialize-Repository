@@ -1,0 +1,16 @@
+# Python dependencies required for release and publish this repo to a package.
+# Try to explain what the dependecy does and group them.
+
+### Documentation
+# Python documentation generator
+Sphinx==3.5.2
+sphinx-autobuild==2021.3.14
+sphinx-rtd-theme==0.5.1
+
+### Release
+# Collection of utilities for publishing packages on PyPI
+twine==3.8.0
+# Invoke the PEP 517 hooks to build a distribution package.
+build==0.7.0
+# Dependecy check - Find packages that should or should not be in requirements for a project
+pip-check-reqs==2.3.2

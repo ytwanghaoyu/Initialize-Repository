@@ -1,0 +1,61 @@
+stages:
+  - ci_check
+  - build_release
+
+lint:
+  stage: ci_check
+  image:
+    name: adas-img.nioint.com/qat/nat:0.0.1
+  script:
+    - env | sort
+    - nvidia-smi
+    - make dev
+    - make pre-commit
+  only:
+    - pushes
+  tags:
+    - gitlab-runner-idc-algo
+
+test:
+  stage: ci_check
+  image:
+    name: adas-img.nioint.com/qat/nat:0.0.1
+  script:
+    - env | sort
+    - nvidia-smi
+    - make dev
+    - make test
+  only:
+    - pushes
+  tags:
+    - gitlab-runner-idc-algo
+
+minor_release:
+  stage: build_release
+  image:
+    name: adas-img.nioint.com/qat/nat:0.0.1
+  script:
+    - env | sort
+    - nvidia-smi
+    - make release
+  only:
+    - master
+  tags:
+    - gitlab-runner-idc-algo
+
+major_release:
+  stage: build_release
+  image:
+    name: adas-img.nioint.com/qat/nat:0.0.1
+  script:
+    - env | sort
+    - nvidia-smi
+    - make release
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+    - tags
+  tags:
+    - gitlab-runner-idc-algo

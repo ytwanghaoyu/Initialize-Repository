@@ -1,0 +1,8 @@
+# Python dependencies required for executing development to this repo.
+# Try to explain what the dependecy does and group them.
+
+--extra-index-url http://someurl
+--trusted-host xxxx.com
+
+# Treat as developer / contributor
+-r ./requirements/develop.txt

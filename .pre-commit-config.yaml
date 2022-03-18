@@ -1,0 +1,51 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-docstring-first
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: check-xml
+      - id: check-yaml
+      - id: check-symlinks
+      - id: end-of-file-fixer
+      - id: fix-encoding-pragma
+      - id: forbid-new-submodules
+      - id: mixed-line-ending
+      - id: name-tests-test
+      - id: no-commit-to-branch
+      - id: pretty-format-json
+        args: [--autofix]
+      - id: sort-simple-yaml
+        files: .pre-commit-config.yaml
+      - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: black
+        name: black
+        language: system
+        entry: python -m black
+        types: [python]
+      - id: mypy
+        name: mypy
+        language: system
+        entry: python -m mypy --config-file=pyprojects.toml
+        types: [python]
+        require_serial: true
+      - id: flake8
+        name: flake8
+        language: system
+        entry: python -m flake8
+        types: [python]
+      # - id: pylint
+      #   name: pylint
+      #   language: system
+      #   entry: python -m pylint
+      #   types: [python]
+      - id: toml-sort
+        name: toml-sort
+        language: system
+        entry: toml-sort -a -i
+        types: [toml]

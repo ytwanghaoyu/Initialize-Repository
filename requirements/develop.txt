@@ -1,0 +1,9 @@
+# Python dependencies required for executing development to this repo.
+# Try to explain what the dependecy does and group them.
+
+# For repo's own usage, the dependencies that pip install will check.
+-r ./install.txt
+# For package release and doc publishing.
+-r ./release.txt
+# For test and CICD.
+-r ./test.txt

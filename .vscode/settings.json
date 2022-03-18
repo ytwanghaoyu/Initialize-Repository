@@ -1,0 +1,67 @@
+{
+  // 文件自动保存
+  "files.autoSave": "afterDelay",
+  // onFocusChange => 当前文件失去焦点后自动保存
+  // onWindowChange => 需要当前 VScode 窗口失去焦点才会自动保存
+  // afterDelay => 与 files.autoSaveDelay 配置联动，也就是在间隔多少毫秒自动保存，默认「1000毫秒」，有个小细节，如果配置了保存格式化代码，这个配置下自动保存不会格式化代码
+  "files.autoSaveDelay": 60000,
+  // 一个制表符等于的空格数。对于一些 C++ Python 共存的项目，可能需要设置成 2
+  "editor.tabSize": 4,
+  // 禁止自动显示当前文件
+  "explorer.autoReveal": false,
+  // diff要显示空格的不同
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  // 控制是否应在文件保存时运行"整理 import 语句"操作。
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  // 在粘贴和保存时自动执行格式化程序
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  // 不在左边资源管理器中显示的文件
+  "files.exclude": {
+    "**/*.egg-info": true,
+    "**/.coverage": true,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    "**/Pipfile*": true,
+    "**/__pycache__": true,
+    "**/build": true,
+    "**/coverage.xml": true,
+    "**/htmlcov": true
+  },
+  // 在保存文件时，尾行插入空行
+  "files.insertFinalNewline": true,
+  // 保存文件时将删除在最终新行后的所有新行，删除行尾的空格。
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  // 统一使用 black 作为 formatter
+  "python.formatting.provider": "black",
+  // 同时使用 flake8 mypy pylint 作为 linter
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.pylintEnabled": true,
+  // 启用后，扩展将本地下载并安装在远程上。
+  "remote.downloadExtensionsLocally": true,
+  // 使用 Prettier - Code formatter 扩展作为 Formatter (未安装不受影响)
+  // Refer: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+  // 下面这种设置方式也告诉我们，可以为不同语言或文档单独配置
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[restructuredtext]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

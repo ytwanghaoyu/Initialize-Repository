@@ -1,0 +1,2 @@
+# Python dependencies of this repo.
+# Try to explain what the dependecy does and group them.
